@@ -1,0 +1,41 @@
+---
+layout: default
+title: Purchase
+---
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Purchase</title>
+  <script src="https://js.stripe.com/v3/"></script>
+</head>
+<body>
+
+  <h1>Purchase</h1>
+  <p>Click the button below to proceed to checkout.</p>
+
+  <button id="checkout-button">Checkout</button>
+
+  <script>
+    const stripe = Stripe('YOUR_PUBLIC_STRIPE_KEY'); // Replace this with your real key
+
+    document.getElementById('checkout-button').addEventListener('click', () => {
+      fetch('/create-checkout-session', {
+        method: 'POST',
+      })
+      .then(response => response.json())
+      .then(session => {
+        return stripe.redirectToCheckout({ sessionId: session.id });
+      })
+      .catch(error => {
+        console.error('Error:', error);
+      });
+    });
+  </script>
+
+  <a href="index.html">← Back to Home</a>
+
+</body>
+</html>
