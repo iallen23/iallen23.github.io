@@ -1,5 +1,16 @@
 body {
-  text-align: center;
+  background-color: #000000;
+  color: #ffffff;
+  font-family: Arial, sans-serif;
+  margin: 2rem;
+}
+
+a {
+  color: #00ffff; /* Optional: make links a nice neon blue */
+}
+
+h1, h2, h3 {
+  color: #ffffff;
 }
 
 img[alt="Site Logo"] {
