@@ -1,0 +1,8 @@
+body {
+  text-align: center;
+}
+
+img[alt="Site Logo"] {
+  border-radius: 8px;
+  margin-bottom: 30px;
+}
